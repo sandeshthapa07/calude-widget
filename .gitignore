@@ -1,0 +1,11 @@
+# Build output (Windows: build.cmd -> bin/, macOS/Linux: npm run dist -> dist/)
+bin/
+macos-linux/dist/
+macos-linux/node_modules/
+
+# Temp files the apps write while saving
+*.tmp[0-9]*
+
+# OS clutter
+.DS_Store
+Thumbs.db

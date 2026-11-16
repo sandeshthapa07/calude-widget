@@ -1,0 +1,44 @@
+{
+  "name": "claude-widget",
+  "productName": "Claude Widget",
+  "version": "0.3.0",
+  "description": "Always-on-top panel showing live Claude Code sessions, what each is doing, estimated cost and plan limits (macOS and Linux).",
+  "main": "main.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "Claude Widget",
+  "homepage": "https://github.com/sandeshthapa07/calude-widget",
+  "repository": { "type": "git", "url": "https://github.com/sandeshthapa07/calude-widget.git" },
+  "bugs": { "url": "https://github.com/sandeshthapa07/calude-widget/issues" },
+  "scripts": {
+    "start": "electron .",
+    "cli": "node cli.js",
+    "snapshot": "node cli.js snapshot",
+    "install-hooks": "node cli.js install",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "45.3.2",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "local.claudewidget.app",
+    "productName": "Claude Widget",
+    "files": ["main.js", "preload.js", "cli.js", "lib/**", "ui/**", "hook/**", "assets/**"],
+    "asarUnpack": ["hook/**"],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": ["dmg", "zip"],
+      "icon": "assets/icon.png",
+      "extendInfo": { "LSUIElement": true }
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Development",
+      "icon": "assets/icon.png",
+      "maintainer": "Claude Widget <claude-widget@localhost>",
+      "synopsis": "Live Claude Code sessions, cost and plan limits"
+    }
+  }
+}
